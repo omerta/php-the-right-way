@@ -1,15 +1,16 @@
 ---
 layout: page
-title:  The Basics
+title:  Los Fundamentos
 sitemap: true
 ---
 
-# The Basics
+# Los Fundamentos
 
-## Comparison operators
+## Operadores de Comparación
 
-Comparison operators are an often overlooked aspect of PHP, which can lead to many unexpected outcomes. One such
-problem stems from strict comparisons (the comparison of booleans as integers).
+Las operadores de comparación son un aspecto comunmente desestimado de PHP, lo que
+puede conducir a muchas consecuencias inesperadas. Un problema de este tipo resulta
+de las comparaciones estrictas (la comparación de un booleano como un entero).
 
 {% highlight php %}
 <?php
