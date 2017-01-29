@@ -35,17 +35,18 @@ if (strpos('testing', 'test') !== false) {    // true, as strict comparison was 
 }
 {% endhighlight %}
 
-* [Comparison operators](http://php.net/language.operators.comparison)
-* [Comparison table](http://php.net/types.comparisons)
+* [Operadores de comparación](http://php.net/language.operators.comparison)
+* [Tabla de comparación](http://php.net/types.comparisons)
 * [Comparison cheatsheet](http://phpcheatsheets.com/index.php?page=compare)
 
-## Conditional statements
+## Sentencias condicionales
 
-### If statements
+### Sentencia if
 
-While using 'if/else' statements within a function or class, there is a common misconception that 'else' must be used
-in conjunction to declare potential outcomes. However if the outcome is to define the return value, 'else' is not
-necessary as 'return' will end the function, causing 'else' to become moot.
+Cuando usamos la sentencia 'if/else' dentro de una función o método de una clase,
+hay un error común al creer que 'else' debe ser usada para manejar un posible resultado.
+Sin embargo si el resultado es para fijar el valor de retorno, 'else' no es necesario
+porque 'return' terminará la función, con lo que resulta que 'else' es irrelevante.
 
 {% highlight php %}
 <?php
