@@ -80,14 +80,18 @@ function test($a)
 
 * [If statements](http://php.net/control-structures.if)
 
-### Switch statements
+### Sentencia Switch
 
-Switch statements are a great way to avoid typing endless if's and elseif's, but there are a few things to be aware of:
+Las sentencias _switch_ son una buena manera de evitar escribir interminables
+sentencias _if_ y _else_, pero hay algunas cosas de las que debemos saber:
 
-- Switch statements only compare values, and not the type (equivalent to '==')
-- They Iterate case by case until a match is found. If no match is found, then the default is used (if defined)
-- Without a 'break', they will continue to implement each case until reaching a break/return
-- Within a function, using 'return' alleviates the need for 'break' as it ends the function
+- La sentencia _switch_ solo compara el valor y no el tipo (equivale a '==')
+- La sentencia _switch_ itera caso por caso hasta encontrar la coincidencia.
+Si no se encuentra una coincidencia el caso 'default', en caso de estar definido,
+será usado.
+- Sin un 'break' los casos continuarán implementandose hasta alcanzar un break/return.
+- Dentro de una función el uso de 'return' sustrae la necesidad de un 'break',
+Aquel finaliza la función.
 
 {% highlight php %}
 <?php
