@@ -229,7 +229,7 @@ echo "I like $juice juice";    // Output: I like plum juice
 {% endhighlight %}
 
 Cuando se usa la interpolación es común añadir a la variable otro
-caracter. Esto resultará un poco confuso, que es el nombre de una variable
+caracter. Resultará un poco confuso determinar que es un nombre de una variable
 y que es un caracter literal.
 
 Para resolver este problema se debe envolver la variable dentro de un par de llaves.
