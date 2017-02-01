@@ -170,20 +170,23 @@ $a = 'Multi-line example'      // concatenation operator (.)
 
 * [String Operators](http://php.net/language.operators.string)
 
-### String types
+### Cadenas de caracteres
 
-Strings are a series of characters, which should sound fairly simple. That said, there are a few different types of
-strings and they offer slightly different syntax, with slightly different behaviors.
+Las cadenas de caracteres son una serie de caracteres, esto suena bastante simple.
+Pero hay diferentes tipos de cadenas y ellas tienen una sintaxis un poco diferente
+y un comportamiento un poco diferente.
 
-#### Single quotes
+#### Comillas simples
 
-Single quotes are used to denote a "literal string". Literal strings do not attempt to parse special characters or
-variables.
+Las comillas simples son usadas para denotar una "cadena de caracteres literal".
+Las cadenas de caracteres literales no intentan resolver los caracteres especiales
+o las variables.
 
-If using single quotes, you could enter a variable name into a string like so: `'some $thing'`, and you would see the
-exact output of `some $thing`. If using double quotes, that would try to evaluate the `$thing` variable name and show
-errors if no variable was found.
-
+Si se usan comillas simples y se introduce un nombre de variable en una cadena de
+caracteres, por ejemplo: 'some $thing', se tendrá como salida exactamente el mismo
+nombre de la variable $thing. Por el contrario si se usan comillas dobles se intentará
+evaluar el nombre de variable $thing y se muestra un error si la variable no fue
+encontrada.
 
 {% highlight php %}
 <?php
@@ -198,10 +201,12 @@ echo 'This is my string, look at how pretty it is.';    // no need to parse a si
 
 * [Single quote](http://php.net/language.types.string#language.types.string.syntax.single)
 
-#### Double quotes
+#### Comillas dobles
 
-Double quotes are the Swiss Army Knife of strings. They will not only parse variables as mentioned above, but all sorts
-of special characters, like `\n` for newline, `\t` for a tab, etc.
+Las comillas dobles son la navaja de la armada suiza. Ellas no solo evaluan variables
+como ya hemos dicho, además, evaluan todo el conjunto de caracteres especiales,
+como `\n` para una nueva linea o `\t` para una tabulación.
+
 
 {% highlight php %}
 <?php
@@ -215,7 +220,7 @@ echo "phptherightway is $adjective.\n I love learning $code!"  // Instead of mul
                                                                // enables us to use a parsable string
 {% endhighlight %}
 
-Double quotes can contain variables; this is called "interpolation".
+Las comillas dobles pueden contener variables, a esto se llama interpolación.
 
 {% highlight php %}
 <?php
@@ -223,10 +228,11 @@ $juice = 'plum';
 echo "I like $juice juice";    // Output: I like plum juice
 {% endhighlight %}
 
-When using interpolation, it is often the case that the variable will be touching another character. This will result
-in some confusion as to what is the name of the variable, and what is a literal character.
+Cuando se usa la interpolación es común añadir a la variable otro
+caracter. Esto resultará un poco confuso, que es el nombre de una variable
+y que es un caracter literal.
 
-To fix this problem, wrap the variable within a pair of curly brackets.
+Para resolver este problema se debe envolver la variable dentro de un par de llaves.
 
 {% highlight php %}
 <?php
