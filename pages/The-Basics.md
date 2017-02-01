@@ -118,10 +118,11 @@ function test($a)
 * [Switch statements](http://php.net/control-structures.switch)
 * [PHP switch](http://phpswitch.com/)
 
-## Global namespace
+## Espacio de nombre globales
 
-When using namespaces, you may find that internal functions are hidden by functions you wrote. To fix this, refer to
-the global function by using a backslash before the function name.
+Cuando se usan espacios de nombres te encontraras que las funciones internas son
+oculatadas por las funciones que tu escribiste. Esto se arregla haciendo referencia
+a la funcióm global con el uso de la barra inversa antes del nombre de la función.
 
 {% highlight php %}
 <?php
@@ -145,12 +146,14 @@ function array()
 
 ## Strings
 
-### Concatenation
+### Concatenación
 
-- If your line extends beyond the recommended line length (120 characters), consider concatenating your line
-- For readability it is best to use concatenation operators over concatenating assignment operators
-- While within the original scope of the variable, indent when concatenation uses a new line
-
+- Si una linea se extiende más allá de la longitud de linea recomendada (120 caracteres),
+considere concatenar la linea.
+- Por legibilidad es mejor usar el _operador de concatenación_ antes que el _operador
+de asignación sobre concatenación_.
+- Mientras se este en el alcance de la variables se debe identar cuando la concatenación
+precisa una nueva linea.
 
 {% highlight php %}
 <?php
