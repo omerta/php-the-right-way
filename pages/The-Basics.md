@@ -280,10 +280,11 @@ EOD;                        // closing 'EOD' must be on it's own line, and to th
 
 * [Nowdoc syntax](http://php.net/language.types.string#language.types.string.syntax.nowdoc)
 
-#### Heredoc syntax
+#### Heredoc
 
-Heredoc syntax internally behaves the same way as double quotes except it is suited toward the use of multi-line
-strings without the need for concatenating.
+Heredoc internamente se comporta de la misma manera que las comillas dobles con
+la excepción de que es más útil cuando se usan codenas de caracteres de muchas lineas
+evitando la necesidad de concatenar.,
 
 {% highlight php %}
 <?php
