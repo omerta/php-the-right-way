@@ -285,7 +285,7 @@ EOD;                        // closing 'EOD' must be on it's own line, and to th
 
 Heredoc internamente se comporta de la misma manera que las comillas dobles con
 la excepción de que es más útil cuando se usan codenas de caracteres de muchas lineas
-evitando la necesidad de concatenar.,
+evitando la necesidad de concatenar.
 
 {% highlight php %}
 <?php
@@ -310,13 +310,15 @@ EOD;                        // closing 'EOD' must be on it's own line, and to th
 
 * [Heredoc syntax](http://php.net/language.types.string#language.types.string.syntax.heredoc)
 
-### Which is quicker?
+### ¿Cual es más rápido?
 
-There is a myth floating around that single quote strings are fractionally quicker than double quote strings. This is
-fundamentally not true.
+Hay un mito alrededor de las cadenas de caracteres con comillas simples en las que
+estas son un poco mas rápidas que las cadenas de caracteres con comillas dobles.
+Esto es básicamente falso.
 
-If you are defining a single string and not trying to concatenate values or anything complicated, then either a single
-or double quoted string will be entirely identical. Neither are quicker.
+Si se esta definiendo una cadena de caracteres simple y no se intenta concatenar
+valores ni nada complicado entonces tanto las comillas simples como las dobles serán
+completamente identícas. Ninguno será más rápido.
 
 If you are concatenating multiple strings of any type, or interpolate values into a double quoted string, then the
 results can vary. If you are working with a small number of values, concatenation is minutely faster. With a lot of
