@@ -254,10 +254,11 @@ echo "I drank some juice made of {$juice[1]}s";   // $juice[1] will be parsed
 
 * [Double quotes](http://php.net/language.types.string#language.types.string.syntax.double)
 
-#### Nowdoc syntax
+#### Nowdoc
 
-Nowdoc syntax was introduced in 5.3 and internally behaves the same way as single quotes except it is suited toward the
-use of multi-line strings without the need for concatenating.
+Nowdoc fue agregado en 5.3 e internamente se comporta de la misma manera que las comillas simples
+con la excepción de que es más útil cundo se usan cadenas de caracteres de multiples lineas sin la
+necesidad de concatenar.
 
 {% highlight php %}
 <?php
