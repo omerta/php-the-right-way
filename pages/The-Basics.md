@@ -320,13 +320,15 @@ Si se esta definiendo una cadena de caracteres simple y no se intenta concatenar
 valores ni nada complicado entonces tanto las comillas simples como las dobles serán
 completamente identícas. Ninguno será más rápido.
 
-If you are concatenating multiple strings of any type, or interpolate values into a double quoted string, then the
-results can vary. If you are working with a small number of values, concatenation is minutely faster. With a lot of
-values, interpolating is minutely faster.
+Si se esta concatenando multiples cadenas de caracteres de cualquier tipo o interpolando valores
+dentro de una cadena de caracteres con comillas dobles, entonces, el resultado puede
+variar. Si se esta trabajando con un pequeño número de valores la concatenación es
+minimamente más rápida. Con muchos valores la interpolación es minimanmente más rápido.
 
-Regardless of what you are doing with strings, none of the types will ever have any noticeable impact on your
-application. Trying to rewrite code to use one or the other is always an exercise in futility, so avoid this micro-
-optimization unless you really understand the meaning and impact of the differences.
+Sin importar que se este haciedno con las cadenas de caracteres, ninguno de los tipos
+tendra algún impacto notable en su aplicación. Intentar escribir código de una u otra
+manera como ejercicio es inútil, así que evite esta micro-optimización a menos que
+realmente entienda el significado e impacto de la diferencia.
 
 * [Disproving the Single Quotes Performance Myth](http://nikic.github.io/2012/01/09/Disproving-the-Single-Quotes-Performance-Myth.html)
 
