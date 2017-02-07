@@ -8,29 +8,25 @@ sitemap: true
 
 ## Operadores de Comparación
 
-Las operadores de comparación son un aspecto comunmente desestimado de PHP, lo que
-puede conducir a muchas consecuencias inesperadas. Un problema de este tipo resulta
-de las comparaciones estrictas (la comparación de un booleano como un entero).
+Las operadores de comparación son un aspecto comúnmente desestimado de PHP, lo que puede conducir a muchos resultados inesperadas. Un problema de este tipo
+resulta de las comparaciones estrictas (la comparación de booleanos como un enteros).
 
 {% highlight php %}
 <?php
-$a = 5;   // 5 as an integer
+$a = 5;   // 5 como un entero
 
-var_dump($a == 5);       // compare value; return true
-var_dump($a == '5');     // compare value (ignore type); return true
-var_dump($a === 5);      // compare type/value (integer vs. integer); return true
-var_dump($a === '5');    // compare type/value (integer vs. string); return false
+var_dump($a == 5);       // compara el valor; regresa true
+var_dump($a == '5');     // compara el valor (ignora el tipo de dato); regresa true
+var_dump($a === 5);      // compara el tipo de dato y el valor (integer vs. integer); regresa true
+var_dump($a === '5');    // compara el tipo de dato y el valor (integer vs. string); regresa false
 
-/**
- * Strict comparisons
- */
-if (strpos('testing', 'test')) {    // 'test' is found at position 0, which is interpreted as the boolean 'false'
+//Comparaciones de igualdad
+if (strpos('testing', 'test')) {    // 'test' es encontrado en la posición 0, por lo que es interpretado como un booleano 'false'
     // code...
 }
 
-// vs.
-
-if (strpos('testing', 'test') !== false) {    // true, as strict comparison was made (0 !== false)
+// vs. comparaciones estrictas
+if (strpos('testing', 'test') !== false) {    // true, con la comparación estricta se evalúa (0 !== false)
     // code...
 }
 {% endhighlight %}
@@ -43,10 +39,9 @@ if (strpos('testing', 'test') !== false) {    // true, as strict comparison was 
 
 ### Sentencia if
 
-Cuando usamos la sentencia 'if/else' dentro de una función o método de una clase,
-hay un error común al creer que 'else' debe ser usada para manejar un posible resultado.
-Sin embargo si el resultado es para fijar el valor de retorno, 'else' no es necesario
-porque 'return' terminará la función, con lo que resulta que 'else' es irrelevante.
+Cuando usamos la sentencia 'if/else' dentro de una función o método de una clase, hay un error común al creer que 'else' debe ser usada
+para manejar un posible resultado. Sin embargo si el resultado es para establecer el valor de retorno, 'else' no es
+necesario porque 'return' terminará la función, con lo que resulta que 'else' es irrelevante.
 
 {% highlight php %}
 <?php
@@ -66,10 +61,10 @@ function test($a)
     if ($a) {
         return true;
     }
-    return false;    // else is not necessary
+    return false;    // else es necesario
 }
 
-// or even shorter:
+// o aún más corto:
 
 function test($a)
 {
@@ -408,7 +403,7 @@ tambíen true.
 return ($a == 3 && $b == 4) && $c == 5;
 {% endhighlight %}
 
-Otro ejemplo es el pedaso de abajo que regresará true si ($a != 3 AND $b != 4) OR $c == 5.
+Otro ejemplo es el pedazo de abajo que regresará true si ($a != 3 AND $b != 4) OR $c == 5.
 
 {% highlight php %}
 <?php
@@ -420,11 +415,11 @@ Expression "expr1 ?: expr3" returns expr1 if expr1 evaluates to TRUE, and expr3 
 
 * [Ternary operators](http://php.net/language.operators.comparison)
 
-## Variable declarations
+## Declaración de variables
 
-At times, coders attempt to make their code "cleaner" by declaring predefined variables with a different name. What
-this does in reality is to double the memory consumption of said script. For the example below, let us say an example
-string of text contains 1MB worth of data, by copying the variable you've increased the scripts execution to 2MB.
+A veces los programadores intentan hacer su código más "limpio" declarando variables predefinidas con un nombre diferente. Lo que
+esto hace en realidad es duplicar el consumo de memoria del código en cuestión. En el ejemplo que se muestra abajo consideramos
+una cadena de caracteres de texto que pesa 1MB al copiar la variable se ha incrementado la ejecución del código a 2MB.
 
 {% highlight php %}
 <?php
