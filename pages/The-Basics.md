@@ -333,10 +333,11 @@ realmente entienda el significado e impacto de la diferencia.
 * [Disproving the Single Quotes Performance Myth](http://nikic.github.io/2012/01/09/Disproving-the-Single-Quotes-Performance-Myth.html)
 
 
-## Ternary operators
+## Operadores ternarios
 
-Ternary operators are a great way to condense code, but are often used in excess. While ternary operators can be
-stacked/nested, it is advised to use one per line for readability.
+Los operadores ternarios son un bueno forma de condesar código pero a menudo son usados en exceso.
+Mientras que los operadores ternarios pueden ser amontonados/anidados, es aconsejable usar uno por
+linea por legibilidad.
 
 {% highlight php %}
 <?php
@@ -344,14 +345,14 @@ $a = 5;
 echo ($a == 5) ? 'yay' : 'nay';
 {% endhighlight %}
 
-In comparison, here is an example that sacrifices all forms of readability for the sake of reducing the line count.
+En comparación este ejemplo sacrifica totalmente la legibilidad para reducir el número de lineas.
 
 {% highlight php %}
 <?php
 echo ($a) ? ($a == 5) ? 'yay' : 'nay' : ($b == 10) ? 'excessive' : ':(';    // excess nesting, sacrificing readability
 {% endhighlight %}
 
-To 'return' a value with ternary operators use the correct syntax.
+Para 'return' un valor con operadores ternarios se debe usar una correcta sintaxis.
 
 {% highlight php %}
 <?php
@@ -365,8 +366,8 @@ return ($a == 5) ? 'yay' : 'nope';    // this example will return 'yay'
 
 {% endhighlight %}
 
-It should be noted that you do not need to use a ternary operator for returning a boolean value. An example of this
-would be.
+Debe ser notado que no se necesita usar un operador ternario para regresar un valor boleano. Un ejemplo de esto
+pude ser.
 
 {% highlight php %}
 <?php
@@ -380,12 +381,12 @@ return $a == 3; // Will return true or false if $a == 3
 
 {% endhighlight %}
 
-This can also be said for all operations(===, !==, !=, == etc).
+Esto mismo se puede decir para todos los operadores (===, !==, !=, ==, etc).
 
-#### Utilising brackets with ternary operators for form and function
+#### Usando paréntesis con operadore ternarios en fornularios y fubciones
 
-When utilising a ternary operator, brackets can play their part to improve code readability and also to include unions
-within blocks of statements. An example of when there is no requirement to use bracketing is:
+Cuando se usa un operador ternario los paréntesis pueden mejorar la legibilidad del código y además incluir
+uniones dentro de un blocke de sentencias. Un ejemplo de cuando no hay necesidad de usar parentesis es:
 
 {% highlight php %}
 <?php
@@ -398,16 +399,16 @@ $a = 3;
 return $a == 3 ? "yay" : "nope"; // return yay or nope if $a == 3
 {% endhighlight %}
 
-Bracketing also affords us the capability of creating unions within a statement block where the block will be checked
-as a whole. Such as this example below which will return true if both ($a == 3 and $b == 4) are true and $c == 5 is
-also true.
+Usar paréntesis tambien nos ofrece la capacidad de crear uniones dentro de un bloque de sentencia en donde el bloque
+será comprobado como un todo. Así, el ejemplo de abajo regresará true si ambos ($a == 3 and $b == 4) son true y $c == 5 es
+tambíen true.
 
 {% highlight php %}
 <?php
 return ($a == 3 && $b == 4) && $c == 5;
 {% endhighlight %}
 
-Another example is the snippet below which will return true if ($a != 3 AND $b != 4) OR $c == 5.
+Otro ejemplo es el pedaso de abajo que regresará true si ($a != 3 AND $b != 4) OR $c == 5.
 
 {% highlight php %}
 <?php
