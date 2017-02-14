@@ -8,29 +8,25 @@ sitemap: true
 
 ## Operadores de Comparación
 
-Las operadores de comparación son un aspecto comunmente desestimado de PHP, lo que
-puede conducir a muchas consecuencias inesperadas. Un problema de este tipo resulta
-de las comparaciones estrictas (la comparación de un booleano como un entero).
+Las operadores de comparación son un aspecto comúnmente desestimado de PHP, lo que puede conducir a muchos resultados inesperadas. Un problema de este tipo
+resulta de las comparaciones estrictas (la comparación de booleanos como un enteros).
 
 {% highlight php %}
 <?php
-$a = 5;   // 5 as an integer
+$a = 5;   // 5 como un entero
 
-var_dump($a == 5);       // compare value; return true
-var_dump($a == '5');     // compare value (ignore type); return true
-var_dump($a === 5);      // compare type/value (integer vs. integer); return true
-var_dump($a === '5');    // compare type/value (integer vs. string); return false
+var_dump($a == 5);       // compara el valor; regresa true
+var_dump($a == '5');     // compara el valor (ignora el tipo de dato); regresa true
+var_dump($a === 5);      // compara el tipo de dato y el valor (integer vs. integer); regresa true
+var_dump($a === '5');    // compara el tipo de dato y el valor (integer vs. string); regresa false
 
-/**
- * Strict comparisons
- */
-if (strpos('testing', 'test')) {    // 'test' is found at position 0, which is interpreted as the boolean 'false'
+//Comparaciones de igualdad
+if (strpos('testing', 'test')) {    // 'test' es encontrado en la posición 0, por lo que es interpretado como un booleano 'false'
     // code...
 }
 
-// vs.
-
-if (strpos('testing', 'test') !== false) {    // true, as strict comparison was made (0 !== false)
+// vs. comparaciones estrictas
+if (strpos('testing', 'test') !== false) {    // true, con la comparación estricta se evalúa (0 !== false)
     // code...
 }
 {% endhighlight %}
@@ -43,10 +39,9 @@ if (strpos('testing', 'test') !== false) {    // true, as strict comparison was 
 
 ### Sentencia if
 
-Cuando usamos la sentencia 'if/else' dentro de una función o método de una clase,
-hay un error común al creer que 'else' debe ser usada para manejar un posible resultado.
-Sin embargo si el resultado es para fijar el valor de retorno, 'else' no es necesario
-porque 'return' terminará la función, con lo que resulta que 'else' es irrelevante.
+Cuando usamos la sentencia 'if/else' dentro de una función o método de una clase, hay un error común al creer que 'else' debe ser usada
+para manejar un posible resultado. Sin embargo si el resultado es para establecer el valor de retorno, 'else' no es
+necesaria porque 'return' terminará la función, con lo que resulta que 'else' es irrelevante.
 
 {% highlight php %}
 <?php
@@ -66,10 +61,10 @@ function test($a)
     if ($a) {
         return true;
     }
-    return false;    // else is not necessary
+    return false;    // else no es necesario
 }
 
-// or even shorter:
+// o aún más corto:
 
 function test($a)
 {
@@ -82,32 +77,28 @@ function test($a)
 
 ### Sentencia Switch
 
-Las sentencias _switch_ son una buena manera de evitar escribir interminables
-sentencias _if_ y _else_, pero hay algunas cosas de las que debemos saber:
+Las sentencias _switch_ son una buena manera de evitar escribir interminables sentencias _if_ y _else_, pero hay algunas cosas de las que debemos saber:
 
 - La sentencia _switch_ solo compara el valor y no el tipo (equivale a '==')
-- La sentencia _switch_ itera caso por caso hasta encontrar la coincidencia.
-Si no se encuentra una coincidencia el caso 'default', en caso de estar definido,
-será usado.
+- La sentencia _switch_ itera caso por caso hasta encontrar la coincidencia. Si no se encuentra una coincidencia el caso 'default', en caso de estar definido, será usado.
 - Sin un 'break' los casos continuarán implementandose hasta alcanzar un break/return.
-- Dentro de una función el uso de 'return' sustrae la necesidad de un 'break',
-Aquel finaliza la función.
+- Dentro de una función el uso de 'return' sustrae la necesidad de un 'break', la sentencia 'return' finaliza la función.
 
 {% highlight php %}
 <?php
-$answer = test(2);    // the code from both 'case 2' and 'case 3' will be implemented
+$answer = test(2);    // el código para el 'case 2' y el 'case 3' será ejecuado.
 
 function test($a)
 {
     switch ($a) {
         case 1:
             // code...
-            break;             // break is used to end the switch statement
+            break;             // break se usa para finalizar la sentencia switch
         case 2:
-            // code...         // with no break, comparison will continue to 'case 3'
+            // code...         // sin la sentencia break la comparación continuará en el 'case 3'
         case 3:
             // code...
-            return $result;    // within a function, 'return' will end the function
+            return $result;    // dentro de una función la sentecia 'return' finalizará la función
         default:
             // code...
             return $error;
@@ -120,9 +111,8 @@ function test($a)
 
 ## Espacio de nombre globales
 
-Cuando se usan espacios de nombres te encontraras que las funciones internas son
-oculatadas por las funciones que tu escribiste. Esto se arregla haciendo referencia
-a la funcióm global con el uso de la barra inversa antes del nombre de la función.
+Cuando se usan espacios de nombres encontraras que las funciones internas son ocultadas por las funciones que tu escribiste. Esto se arregla haciendo referencia a
+la función global con el uso de la barra inversa antes del nombre de la función.
 
 {% highlight php %}
 <?php
@@ -130,8 +120,8 @@ namespace phptherightway;
 
 function fopen()
 {
-    $file = \fopen();    // Our function name is the same as an internal function.
-                         // Execute the function from the global space by adding '\'.
+    $file = \fopen();    // El nombre de nuestra función es el mismo que una función interna.
+                         // Para ejecutar la función que esta en el espacio de nombres global se agrega '\'
 }
 
 function array()
@@ -144,27 +134,24 @@ function array()
 * [Global space](http://php.net/language.namespaces.global)
 * [Global rules](http://php.net/userlandnaming.rules)
 
-## Strings
+## Cadena de caracteres
 
 ### Concatenación
 
-- Si una linea se extiende más allá de la longitud de linea recomendada (120 caracteres),
-considere concatenar la linea.
-- Por legibilidad es mejor usar el _operador de concatenación_ antes que el _operador
-de asignación sobre concatenación_.
-- Mientras se este en el alcance de la variables se debe identar cuando la concatenación
-precisa una nueva linea.
+- Si una linea se extiende más allá de la longitud de linea recomendada (120 caracteres), considere concatenar la linea.
+- Por legibilidad es mejor usar el _operador de concatenación_ antes que el _operador de asignación sobre concatenación_.
+- Mientras se este en el alcance original de la variable se debe identar cuando la concatenación precisa una nueva linea.
 
 {% highlight php %}
 <?php
-$a  = 'Multi-line example';    // concatenating assignment operator (.=)
+$a  = 'Multi-line example';    // operador de asignación sobre concatenación (.=)
 $a .= "\n";
 $a .= 'of what not to do';
 
 // vs
 
-$a = 'Multi-line example'      // concatenation operator (.)
-    . "\n"                     // indenting new lines
+$a = 'Multi-line example'      // operador de concatenación (.)
+    . "\n"                     // identar las nuevas lineas
     . 'of what to do';
 {% endhighlight %}
 
@@ -172,25 +159,21 @@ $a = 'Multi-line example'      // concatenation operator (.)
 
 ### Cadenas de caracteres
 
-Las cadenas de caracteres son una serie de caracteres, esto suena bastante simple.
-Pero hay diferentes tipos de cadenas y ellas tienen una sintaxis un poco diferente
-y un comportamiento un poco diferente.
+Las cadenas de caracteres son una serie de caracteres, esto suena bastante simple. Pero hay diferentes tipos de
+cadenas y ellas tienen una sintaxis un poco diferente con un comportamiento un poco diferente.
 
 #### Comillas simples
 
-Las comillas simples son usadas para denotar una "cadena de caracteres literal".
-Las cadenas de caracteres literales no intentan resolver los caracteres especiales
+Las comillas simples son usadas para denotar una "cadena de caracteres literal". Las cadenas de caracteres literales no intentan resolver los caracteres especiales
 o las variables.
 
-Si se usan comillas simples y se introduce un nombre de variable en una cadena de
-caracteres, por ejemplo: 'some $thing', se tendrá como salida exactamente el mismo
-nombre de la variable $thing. Por el contrario si se usan comillas dobles se intentará
-evaluar el nombre de variable $thing y se muestra un error si la variable no fue
-encontrada.
+Si se usan comillas simples y se introduce un nombre de variable en una cadena de caracteres, por ejemplo: `'some $thing'`, se tendrá como salida exactamente
+el mismo nombre de la variable: `some $thing`. Por el contrario si se usan comillas dobles se intentará evaluar el nombre de variable `$thing` y se muestra
+un error si la variable no fue encontrada.
 
 {% highlight php %}
 <?php
-echo 'This is my string, look at how pretty it is.';    // no need to parse a simple string
+echo 'This is my string, look at how pretty it is.';    // no es necesario evaluar una cadenad de caracteres simple
 
 /**
  * Output:
@@ -420,11 +403,11 @@ La expresión "expr1 ?: expr3" regresa expr1 si expr1 es evaluada como TRUE de l
 
 * [Ternary operators](http://php.net/language.operators.comparison)
 
-## Variable declarations
+## Declaración de variables
 
-At times, coders attempt to make their code "cleaner" by declaring predefined variables with a different name. What
-this does in reality is to double the memory consumption of said script. For the example below, let us say an example
-string of text contains 1MB worth of data, by copying the variable you've increased the scripts execution to 2MB.
+A veces los programadores intentan hacer su código más "limpio" declarando variables predefinidas con un nombre diferente. Lo que
+esto hace en realidad es duplicar el consumo de memoria del código en cuestión. En el ejemplo que se muestra abajo consideramos
+una cadena de caracteres de texto que pesa 1MB al copiar la variable se ha incrementado la ejecución del código a 2MB.
 
 {% highlight php %}
 <?php
