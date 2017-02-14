@@ -408,15 +408,15 @@ tambíen true.
 return ($a == 3 && $b == 4) && $c == 5;
 {% endhighlight %}
 
-Otro ejemplo es el pedaso de abajo que regresará true si ($a != 3 AND $b != 4) OR $c == 5.
+Otro ejemplo es el pedazo de abajo que regresará true si ($a != 3 AND $b != 4) o $c == 5.
 
 {% highlight php %}
 <?php
 return ($a != 3 && $b != 4) || $c == 5;
 {% endhighlight %}
 
-Since PHP 5.3, it is possible to leave out the middle part of the ternary operator.
-Expression "expr1 ?: expr3" returns expr1 if expr1 evaluates to TRUE, and expr3 otherwise.
+Desde PHP 5.3 es posible omitir la parte media del operador ternario.
+La expresión "expr1 ?: expr3" regresa expr1 si expr1 es evaluada como TRUE de lo contrario expr3.
 
 * [Ternary operators](http://php.net/language.operators.comparison)
 
