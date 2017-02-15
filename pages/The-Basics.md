@@ -140,7 +140,8 @@ function array()
 
 - Si una linea se extiende más allá de la longitud de linea recomendada (120 caracteres), considere concatenar la linea.
 - Por legibilidad es mejor usar el _operador de concatenación_ antes que el _operador de asignación sobre concatenación_.
-- Mientras se este en el alcance original de la variable se debe identar cuando la concatenación precisa una nueva linea.
+- Mientras se este en el alcance original de la variable se debe sangrar cuando la concatenación precisa una nueva linea.
+
 
 {% highlight php %}
 <?php
@@ -151,7 +152,7 @@ $a .= 'of what not to do';
 // vs
 
 $a = 'Multi-line example'      // operador de concatenación (.)
-    . "\n"                     // identar las nuevas lineas
+    . "\n"                     // sangrar las nuevas lineas
     . 'of what to do';
 {% endhighlight %}
 
@@ -173,7 +174,7 @@ un error si la variable no fue encontrada.
 
 {% highlight php %}
 <?php
-echo 'This is my string, look at how pretty it is.';    // no es necesario evaluar una cadenad de caracteres simple
+echo 'This is my string, look at how pretty it is.';    // no es necesario evaluar una cadena de caracteres simple
 
 /**
  * Output:
@@ -186,53 +187,50 @@ echo 'This is my string, look at how pretty it is.';    // no es necesario evalu
 
 #### Comillas dobles
 
-Las comillas dobles son la navaja de la armada suiza. Ellas no solo evaluan variables
-como ya hemos dicho, además, evaluan todo el conjunto de caracteres especiales,
-como `\n` para una nueva linea o `\t` para una tabulación.
-
+Las comillas dobles son la navaja de la armada suiza. Ellas no solo evalúan variables como ya hemos dicho, además, evalúan todo el
+conjunto de caracteres especiales como `\n` para una nueva linea o `\t` para una tabulación.
 
 {% highlight php %}
 <?php
-echo 'phptherightway is ' . $adjective . '.'     // a single quotes example that uses multiple concatenating for
-    . "\n"                                       // variables and escaped string
+echo 'phptherightway is ' . $adjective . '.'     // un ejemplo de comillas simples que usa concatenación múltiple para
+    . "\n"                                       // variables y escape de caracteres
     . 'I love learning' . $code . '!';
 
 // vs
 
-echo "phptherightway is $adjective.\n I love learning $code!"  // Instead of multiple concatenating, double quotes
-                                                               // enables us to use a parsable string
+echo "phptherightway is $adjective.\n I love learning $code!"  // En lugar de la concatenación múltiple las comillas dobles
+                                                               // nos permiten usar una cadena de caracteres evaluable
 {% endhighlight %}
 
-Las comillas dobles pueden contener variables, a esto se llama interpolación.
+Las comillas dobles pueden contener variables, a esto se llama "interpolación".
 
 {% highlight php %}
 <?php
 $juice = 'plum';
-echo "I like $juice juice";    // Output: I like plum juice
+echo "I like $juice juice";    // Salida: I like plum juice
 {% endhighlight %}
 
-Cuando se usa la interpolación es común añadir a la variable otro
-caracter. Resultará un poco confuso determinar que es un nombre de una variable
-y que es un caracter literal.
+Cuando se usa la interpolación es común añadir a la variable otro carácter. Resultará
+un poco confuso determinar que es un nombre de una variable y que es un carácter literal.
 
 Para resolver este problema se debe envolver la variable dentro de un par de llaves.
 
 {% highlight php %}
 <?php
 $juice = 'plum';
-echo "I drank some juice made of $juices";    // $juice cannot be parsed
+echo "I drank some juice made of $juices";    // $juice no será evaluada
 
 // vs
 
 $juice = 'plum';
-echo "I drank some juice made of {$juice}s";    // $juice will be parsed
+echo "I drank some juice made of {$juice}s";    // $juice será evaluado
 
 /**
  * Complex variables will also be parsed within curly brackets
  */
 
 $juice = array('apple', 'orange', 'plum');
-echo "I drank some juice made of {$juice[1]}s";   // $juice[1] will be parsed
+echo "I drank some juice made of {$juice[1]}s";   // $juice[1] será evaluada
 {% endhighlight %}
 
 * [Double quotes](http://php.net/language.types.string#language.types.string.syntax.double)
