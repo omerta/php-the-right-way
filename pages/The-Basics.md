@@ -109,7 +109,7 @@ function test($a)
 * [Switch statements](http://php.net/control-structures.switch)
 * [PHP switch](http://phpswitch.com/)
 
-## Espacio de nombre globales
+## Espacio de nombre global
 
 Cuando se usan espacios de nombres encontraras que las funciones internas son ocultadas por las funciones que tu escribiste. Esto se arregla haciendo referencia a
 la función global con el uso de la barra inversa antes del nombre de la función.
@@ -172,6 +172,7 @@ Si se usan comillas simples y se introduce un nombre de variable en una cadena d
 el mismo nombre de la variable: `some $thing`. Por el contrario si se usan comillas dobles se intentará evaluar el nombre de variable `$thing` y se muestra
 un error si la variable no fue encontrada.
 
+
 {% highlight php %}
 <?php
 echo 'This is my string, look at how pretty it is.';    // no es necesario evaluar una cadena de caracteres simple
@@ -223,7 +224,7 @@ echo "I drank some juice made of $juices";    // $juice no será evaluada
 // vs
 
 $juice = 'plum';
-echo "I drank some juice made of {$juice}s";    // $juice será evaluado
+echo "I drank some juice made of {$juice}s";    // $juice será evaluada
 
 /**
  * Complex variables will also be parsed within curly brackets
@@ -235,20 +236,19 @@ echo "I drank some juice made of {$juice[1]}s";   // $juice[1] será evaluada
 
 * [Double quotes](http://php.net/language.types.string#language.types.string.syntax.double)
 
-#### Nowdoc
+#### Sintaxis Nowdoc
 
-Nowdoc fue agregado en 5.3 e internamente se comporta de la misma manera que las comillas simples
-con la excepción de que es más útil cundo se usan cadenas de caracteres de multiples lineas sin la
-necesidad de concatenar.
+Nowdoc fue agregado en 5.3 e internamente se comporta de la misma manera que las comillas simples con la excepción de que es más útil cuando se
+usan cadenas de caracteres de múltiples lineas sin la necesidad de concatenar.
 
 {% highlight php %}
 <?php
-$str = <<<'EOD'             // initialized by <<<
+$str = <<<'EOD'             // comienza con <<<
 Example of string
 spanning multiple lines
 using nowdoc syntax.
 $a does not parse.
-EOD;                        // closing 'EOD' must be on it's own line, and to the left most point
+EOD;                        // termina con 'EOD' que debe tener su propia linea y sin sangrado (pegado a la izquierda)
 
 /**
  * Output:
@@ -262,22 +262,21 @@ EOD;                        // closing 'EOD' must be on it's own line, and to th
 
 * [Nowdoc syntax](http://php.net/language.types.string#language.types.string.syntax.nowdoc)
 
-#### Heredoc
+#### Sintaxis Heredoc
 
-Heredoc internamente se comporta de la misma manera que las comillas dobles con
-la excepción de que es más útil cuando se usan codenas de caracteres de muchas lineas
+Heredoc internamente se comporta de la misma manera que las comillas dobles con la excepción de que es más útil cuando se usan cadenas de caracteres de muchas lineas
 evitando la necesidad de concatenar.
 
 {% highlight php %}
 <?php
 $a = 'Variables';
 
-$str = <<<EOD               // initialized by <<<
+$str = <<<EOD               // comienza con <<<
 Example of string
 spanning multiple lines
 using heredoc syntax.
 $a are parsed.
-EOD;                        // closing 'EOD' must be on it's own line, and to the left most point
+EOD;                        // termina con 'EOD' y debe tener su propia linea y sin sangrado (pegado a la izquierda)
 
 /**
  * Output:
@@ -293,32 +292,27 @@ EOD;                        // closing 'EOD' must be on it's own line, and to th
 
 ### ¿Cual es más rápido?
 
-Hay un mito alrededor de las cadenas de caracteres con comillas simples en las que
-estas son un poco mas rápidas que las cadenas de caracteres con comillas dobles.
-Esto es básicamente falso.
+Hay un mito alrededor de las cadenas de caracteres con comillas simples en las que estas son un poco más rápidas que las cadenas de caracteres con comillas dobles. Esto es
+básicamente falso.
 
-Si se esta definiendo una cadena de caracteres simple y no se intenta concatenar
-valores ni nada complicado entonces tanto las comillas simples como las dobles serán
-completamente identícas. Ninguno será más rápido.
+Si se esta definiendo una cadena de caracteres simple y no se intenta concatenar valores ni nada complicado entonces tanto las comillas simples
+como las dobles serán completamente identícas. Ninguna será más rápida.
 
-Si se esta concatenando multiples cadenas de caracteres de cualquier tipo o interpolando valores
-dentro de una cadena de caracteres con comillas dobles, entonces, el resultado puede
-variar. Si se esta trabajando con un pequeño número de valores la concatenación es
-minimamente más rápida. Con muchos valores la interpolación es minimanmente más rápido.
+Si se esta concatenando múltiples cadenas de caracteres de cualquier tipo o interpolando valores dentro de una cadena de caracteres con comillas dobles, entonces,
+el resultado puede variar. Si se esta trabajando con un pequeño número de valores la concatenación es mínimamente más rápida. Con muchos valores
+la interpolación es mínimanmente más rápido.
 
-Sin importar que se este haciedno con las cadenas de caracteres, ninguno de los tipos
-tendra algún impacto notable en su aplicación. Intentar escribir código de una u otra
-manera como ejercicio es inútil, así que evite esta micro-optimización a menos que
-realmente entienda el significado e impacto de la diferencia.
+Sin importar que se este haciendo con las cadenas de caracteres, ninguno de los tipos tendrá algún impacto notable en su
+aplicación. Intentar escribir código de una u otra manera como ejercicio es inútil, así que evite esta microoptimización
+a menos que realmente entienda el significado e impacto de la diferencia.
 
 * [Disproving the Single Quotes Performance Myth](http://nikic.github.io/2012/01/09/Disproving-the-Single-Quotes-Performance-Myth.html)
 
 
 ## Operadores ternarios
 
-Los operadores ternarios son un bueno forma de condesar código pero a menudo son usados en exceso.
-Mientras que los operadores ternarios pueden ser amontonados/anidados, es aconsejable usar uno por
-linea por legibilidad.
+Los operadores ternarios son una buena forma de condensar código pero a menudo son usados en exceso. Mientras que los operadores ternarios pueden ser
+amontonados/anidados, es aconsejable por legibilidad usar uno por linea.
 
 {% highlight php %}
 <?php
@@ -330,7 +324,7 @@ En comparación este ejemplo sacrifica totalmente la legibilidad para reducir el
 
 {% highlight php %}
 <?php
-echo ($a) ? ($a == 5) ? 'yay' : 'nay' : ($b == 10) ? 'excessive' : ':(';    // excess nesting, sacrificing readability
+echo ($a) ? ($a == 5) ? 'yay' : 'nay' : ($b == 10) ? 'excessive' : ':(';    // excesivo anidamiento que sacrifica la legibilidad
 {% endhighlight %}
 
 Para 'return' un valor con operadores ternarios se debe usar una correcta sintaxis.
@@ -338,50 +332,50 @@ Para 'return' un valor con operadores ternarios se debe usar una correcta sintax
 {% highlight php %}
 <?php
 $a = 5;
-echo ($a == 5) ? return true : return false;    // this example will output an error
+echo ($a == 5) ? return true : return false;    // este ejemplo regresará un error
 
 // vs
 
 $a = 5;
-return ($a == 5) ? 'yay' : 'nope';    // this example will return 'yay'
+return ($a == 5) ? 'yay' : 'nope';    // este ejemplo regresará un 'yay'
 
 {% endhighlight %}
 
-Debe ser notado que no se necesita usar un operador ternario para regresar un valor boleano. Un ejemplo de esto
+Debe ser notado que no se necesita usar un operador ternario para regresar un valor booleano. Un ejemplo de esto
 pude ser.
 
 {% highlight php %}
 <?php
 $a = 3;
-return ($a == 3) ? true : false; // Will return true or false if $a == 3
+return ($a == 3) ? true : false; // regresará true o false si $a == 3
 
 // vs
 
 $a = 3;
-return $a == 3; // Will return true or false if $a == 3
+return $a == 3; // regresará true o false si $a == 3
 
 {% endhighlight %}
 
 Esto mismo se puede decir para todos los operadores (===, !==, !=, ==, etc).
 
-#### Usando paréntesis con operadore ternarios en fornularios y fubciones
+#### Usando paréntesis con operadores ternarios en formularios y funciones
 
-Cuando se usa un operador ternario los paréntesis pueden mejorar la legibilidad del código y además incluir
-uniones dentro de un blocke de sentencias. Un ejemplo de cuando no hay necesidad de usar parentesis es:
+Cuando se usa un operador ternario los paréntesis pueden mejorar la legibilidad del código y además incluir uniones
+dentro de un bloque de sentencias. Un ejemplo de cuando no hay necesidad de usar paréntesis es:
 
 {% highlight php %}
 <?php
 $a = 3;
-return ($a == 3) ? "yay" : "nope"; // return yay or nope if $a == 3
+return ($a == 3) ? "yay" : "nope"; // regresa yay o nope si $a == 3
 
 // vs
 
 $a = 3;
-return $a == 3 ? "yay" : "nope"; // return yay or nope if $a == 3
+return $a == 3 ? "yay" : "nope"; // regresa yay o nope si $a == 3
 {% endhighlight %}
 
-Usar paréntesis tambien nos ofrece la capacidad de crear uniones dentro de un bloque de sentencia en donde el bloque
-será comprobado como un todo. Así, el ejemplo de abajo regresará true si ambos ($a == 3 and $b == 4) son true y $c == 5 es
+Usar paréntesis también nos ofrece la capacidad de crear uniones dentro de un bloque de sentencia en donde el bloque será comprobado
+como un todo. Así, el ejemplo de abajo regresará true si ambos ($a == 3 y $b == 4) son true y $c == 5 es
 tambíen true.
 
 {% highlight php %}
@@ -389,7 +383,7 @@ tambíen true.
 return ($a == 3 && $b == 4) && $c == 5;
 {% endhighlight %}
 
-Otro ejemplo es el pedazo de abajo que regresará true si ($a != 3 AND $b != 4) o $c == 5.
+Otro ejemplo es el pedazo de abajo que regresará true si ($a != 3 y $b != 4) o $c == 5.
 
 {% highlight php %}
 <?php
@@ -405,16 +399,16 @@ La expresión "expr1 ?: expr3" regresa expr1 si expr1 es evaluada como TRUE de l
 
 A veces los programadores intentan hacer su código más "limpio" declarando variables predefinidas con un nombre diferente. Lo que
 esto hace en realidad es duplicar el consumo de memoria del código en cuestión. En el ejemplo que se muestra abajo consideramos
-una cadena de caracteres de texto que pesa 1MB al copiar la variable se ha incrementado la ejecución del código a 2MB.
+una cadena de caracteres de texto que pesa 1MB que luego de copiar la variable se ha incrementado la ejecución del código a 2MB.
 
 {% highlight php %}
 <?php
-$about = 'A very long string of text';    // uses 2MB memory
+$about = 'A very long string of text';    // usa 2MB de memoría
 echo $about;
 
 // vs
 
-echo 'A very long string of text';        // uses 1MB memory
+echo 'A very long string of text';        // usa 1MB de memoría
 {% endhighlight %}
 
 * [Performance tips](http://web.archive.org/web/20140625191431/https://developers.google.com/speed/articles/optimizing-php)
