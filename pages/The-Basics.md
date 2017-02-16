@@ -9,7 +9,7 @@ sitemap: true
 ## Operadores de Comparación
 
 Las operadores de comparación son un aspecto comúnmente desestimado de PHP, lo que puede conducir a muchos resultados inesperadas. Un problema de este tipo
-resulta de las comparaciones estrictas (la comparación de booleanos como un enteros).
+resulta de las comparaciones estrictas (la comparación de booleanos como enteros).
 
 {% highlight php %}
 <?php
@@ -77,9 +77,9 @@ function test($a)
 
 ### Sentencia Switch
 
-Las sentencias _switch_ son una buena manera de evitar escribir interminables sentencias _if_ y _else_, pero hay algunas cosas de las que debemos saber:
+La sentencia _switch_ es una buena manera de evitar escribir interminables sentencias _if_ y _else_, pero hay algunas cosas que debemos saber:
 
-- La sentencia _switch_ solo compara el valor y no el tipo (equivale a '==')
+- La sentencia _switch_ solo compara el valor y no el tipo (equivale a '==').
 - La sentencia _switch_ itera caso por caso hasta encontrar la coincidencia. Si no se encuentra una coincidencia el caso 'default', en caso de estar definido, será usado.
 - Sin un 'break' los casos continuarán implementandose hasta alcanzar un break/return.
 - Dentro de una función el uso de 'return' sustrae la necesidad de un 'break', la sentencia 'return' finaliza la función.
@@ -111,7 +111,7 @@ function test($a)
 
 ## Espacio de nombre global
 
-Cuando se usan espacios de nombres encontraras que las funciones internas son ocultadas por las funciones que tu escribiste. Esto se arregla haciendo referencia a
+Cuando se usan espacios de nombres encontraras que las funciones internas son ocultadas por las funciones que escribiste. Esto se arregla haciendo referencia a
 la función global con el uso de la barra inversa antes del nombre de la función.
 
 {% highlight php %}
@@ -126,8 +126,8 @@ function fopen()
 
 function array()
 {
-    $iterator = new \ArrayIterator();    // ArrayIterator is an internal class. Using its name without a backslash
-                                         // will attempt to resolve it within your namespace.
+    $iterator = new \ArrayIterator();    // ArrayIterator es una clase interna. Si se la usa sin una barra invertida
+                                         // se intentará resolver dentro de nuestro espacio de nombre.
 }
 {% endhighlight %}
 
@@ -160,7 +160,7 @@ $a = 'Multi-line example'      // operador de concatenación (.)
 
 ### Cadenas de caracteres
 
-Las cadenas de caracteres son una serie de caracteres, esto suena bastante simple. Pero hay diferentes tipos de
+Las cadenas de caracteres son una serie de caracteres y aunque suena bastante simple hay diferentes tipos de
 cadenas y ellas tienen una sintaxis un poco diferente con un comportamiento un poco diferente.
 
 #### Comillas simples
@@ -302,7 +302,7 @@ Si se esta concatenando múltiples cadenas de caracteres de cualquier tipo o int
 el resultado puede variar. Si se esta trabajando con un pequeño número de valores la concatenación es mínimamente más rápida. Con muchos valores
 la interpolación es mínimanmente más rápido.
 
-Sin importar que se este haciendo con las cadenas de caracteres, ninguno de los tipos tendrá algún impacto notable en su
+Sin importar que se este haciendo con las cadenas de caracteres, ninguno de los tipos tendrá algún impacto notable en nuestra
 aplicación. Intentar escribir código de una u otra manera como ejercicio es inútil, así que evite esta microoptimización
 a menos que realmente entienda el significado e impacto de la diferencia.
 
@@ -327,7 +327,7 @@ En comparación este ejemplo sacrifica totalmente la legibilidad para reducir el
 echo ($a) ? ($a == 5) ? 'yay' : 'nay' : ($b == 10) ? 'excessive' : ':(';    // excesivo anidamiento que sacrifica la legibilidad
 {% endhighlight %}
 
-Para 'return' un valor con operadores ternarios se debe usar una correcta sintaxis.
+Para regresar un valor con operadores ternarios se debe usar una correcta sintaxis.
 
 {% highlight php %}
 <?php
@@ -342,7 +342,7 @@ return ($a == 5) ? 'yay' : 'nope';    // este ejemplo regresará un 'yay'
 {% endhighlight %}
 
 Debe ser notado que no se necesita usar un operador ternario para regresar un valor booleano. Un ejemplo de esto
-pude ser.
+pude ser:
 
 {% highlight php %}
 <?php
@@ -399,7 +399,7 @@ La expresión "expr1 ?: expr3" regresa expr1 si expr1 es evaluada como TRUE de l
 
 A veces los programadores intentan hacer su código más "limpio" declarando variables predefinidas con un nombre diferente. Lo que
 esto hace en realidad es duplicar el consumo de memoria del código en cuestión. En el ejemplo que se muestra abajo consideramos
-una cadena de caracteres de texto que pesa 1MB que luego de copiar la variable se ha incrementado la ejecución del código a 2MB.
+una cadena de caracteres de texto que pesa 1MB que luego de copiar la variable se incrementa la ejecución del código a 2MB.
 
 {% highlight php %}
 <?php
